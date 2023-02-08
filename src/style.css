@@ -5,7 +5,7 @@ body {
 
 button {
   padding: 10px 20px;
-  background-color: #E37915;
+  background-color: #e37915;
   border: 0;
   border-radius: 5px;
   font-size: 14px;
@@ -54,7 +54,7 @@ header {
 }
 
 .nav-link {
-  color: #E37915;
+  color: #e37915;
   font-size: 19px;
   font-weight: 800;
   text-decoration: none;
@@ -65,10 +65,15 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
   width: 100%;
-  padding: 3rem 0px;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
 }
 
-.meal-image img{
+.meal {
+  margin-bottom: 20px;
+}
+
+.meal-image img {
   width: 100%;
   height: auto;
 }

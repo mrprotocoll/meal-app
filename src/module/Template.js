@@ -14,11 +14,10 @@ export default class Template {
     </div>`
 
     static meals = (data) => {
-        let content = '';
-        data.meals.map((meal) => {
-            content += this.meal(meal);
-        });
-        return content;
+      let content = '';
+      data.meals.forEach((meal) => {
+        content += this.meal(meal);
+      });
+      return content;
     };
-    
 }
