@@ -1,6 +1,17 @@
 body {
-  background-color: bisque;
+  background-color: #fff;
   margin: 0;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #e37915;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 header {
@@ -43,10 +54,34 @@ header {
 }
 
 .nav-link {
-  color: #ff4500;
+  color: #e37915;
   font-size: 19px;
   font-weight: 800;
   text-decoration: none;
+}
+
+.meals {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+}
+
+.meal {
+  margin-bottom: 20px;
+}
+
+.meal-image img {
+  width: 100%;
+  height: auto;
+}
+
+.meal .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 footer {
