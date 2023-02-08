@@ -4,4 +4,6 @@ export default class Meal {
   }
 
   getMeals = async () => fetch(`${this.baseURI}filter.php?c=Seafood`).then((response) => response.json());
+
+  getMealByID = async (id) => fetch(`${this.baseURI}lookup.php?i=${id}`).then((response) => response.json());
 }
