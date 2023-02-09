@@ -15,11 +15,23 @@ window.addEventListener('load', () => {
     mealsContainer.innerHTML = Template.meals(meals, likes);
   };
 
-  getAllMeals().then(() => {
-    const popupcontainer = document.getElementById('pop-up');
-    const commentbtn = document.querySelectorAll('.comment-action');
+  const likeMeal = async (likebtn) => {
+    Array.from(likebtn).forEach((btn) => {
+      btn.onclick = async () => {
+        const iD = btn.getAttribute('data-id');
+        const value = Number(btn.getAttribute('data-likes')) + 1;
+        involvement.addLike(iD).then(() => {
+          btn.setAttribute('data-likes', value);
+          btn.lastElementChild.lastElementChild.innerHTML = value;
+        });
+      };
+    });
+  };
+
+  const viewComments = async (commentbtn) => {
     Array.from(commentbtn).forEach((btn) => {
       btn.onclick = async () => {
+        const popupcontainer = document.getElementById('pop-up');
         const iD = btn.getAttribute('data-id');
         const getMeal = await meal.getMealByID(iD);
         const comments = await involvement.getComments(iD);
@@ -30,5 +42,18 @@ window.addEventListener('load', () => {
         };
       };
     });
-  });
+  };
+
+  const renderDOM = () => {
+    getAllMeals().then(() => {
+      const commentbtn = document.querySelectorAll('.comment-action');
+      const likebtn = document.querySelectorAll('.like');
+      // view comments
+      viewComments(commentbtn);
+      // like meal
+      likeMeal(likebtn);
+    });
+  };
+
+  renderDOM();
 });

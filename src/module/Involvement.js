@@ -15,25 +15,23 @@ export default class Involvement {
     return data;
   }
 
-  addLike = async (id, user, message) => {
-    fetch(`${this.baseURI}likes`, {
+  addLike = async (id) => fetch(`${this.baseURI}likes`, {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: id,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+
+  addComment = async (id, user, message) => {
+    fetch(`${this.baseURI}comments`, {
       method: 'POST',
       body: JSON.stringify({
         item_id: id,
         username: user,
         comment: message,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    }).then((response) => response.json());
-  }
-
-  addComment = async (id) => {
-    fetch(`${this.baseURI}comments`, {
-      method: 'POST',
-      body: JSON.stringify({
-        item_id: id,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',

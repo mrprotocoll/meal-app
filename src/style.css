@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
 body {
   background-color: #fff;
   margin: 0;
 }
 
-button {
+.button {
   padding: 10px 20px;
   background-color: #e37915;
   border: 0;
@@ -14,13 +16,25 @@ button {
   cursor: pointer;
 }
 
+.like {
+  width: 110px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #e37915;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #e37915;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 header {
   background-color: aliceblue;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 989px;
+  max-width: 1024px;
   padding: 0 24px;
 }
 
@@ -75,13 +89,26 @@ header {
 
 .meal-image img {
   width: 100%;
-  height: auto;
+  height: 250px;
 }
 
-.meal .title {
+.meal .action {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 10px;
+}
+
+.meal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  column-gap: 10px;
+  height: 115px;
+}
+
+.title h2 {
+  font-size: 20px;
 }
 
 .com-section {
