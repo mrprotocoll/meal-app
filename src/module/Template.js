@@ -4,19 +4,22 @@ export default class Template {
         <div class="meal-image">
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
         </div>
-        <div class="title">
-            <h2>${meal.strMeal}</h2>
-            <div class="likes"><span><i class="fa fa-heart"></i> ${likes} likes</span></div>
-        </div>
-        <div class="action">
-            <button class="comment-action" data-id="${meal.idMeal}">Comments</button>
+        <div class="meal-body">
+          <div class="title">
+              <h2>${meal.strMeal}</h2>
+          </div>
+          <div class="action">
+              <button class="comment-action button" data-id="${meal.idMeal}">Comments</button>
+              <button data-id="${meal.idMeal}" data-likes="${likes}" class="like"><span><i class="fa fa-heart"></i> <span class="num-of-likes">${likes}</span> likes</span></button>
+          </div>
         </div>
     </div>`
 
     static meals = (data, likes) => {
       let content = '';
       data.meals.forEach((meal) => {
-        const like = likes.filter((like) => like.item_id === meal.idMeal).likes ?? 0;
+        let like = likes.filter((like) => like.item_id === meal.idMeal);
+        like = (like.length > 0) ? like[0].likes : 0;
         content += this.meal(meal, like);
       });
       return content;
