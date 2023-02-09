@@ -30,7 +30,19 @@ export default class Template {
       return content;
     }
 
-    static comment = (meal) => `<section class="com-section">
+    static getComments = (comments) => {
+      let content = '';
+      if (comments.length > 0) {
+        comments.forEach((comment) => {
+          content += `<li>Message: ${comment.comment}
+          <small>Name: ${comment.username}</small>
+          <small>Date: ${comment.creation_date}</small></li>`;
+        });
+      }
+      return content;
+    }
+
+    static comment = (meal, comments) => `<section class="com-section">
         <div class="comment-section">
           <div class="image">
             <img
@@ -56,9 +68,7 @@ export default class Template {
           <div class="comments">
             <h3>Comments<span>5</span></h3>
             <ul>
-              <li>Felix</li>
-              <li>Felix lancelot</li>
-              <li>Felix</li>
+              ${this.getComments(comments)}
             </ul>
           </div>
 

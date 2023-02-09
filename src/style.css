@@ -167,29 +167,57 @@ footer p {
 }
 
 .comments {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  flex-direction: column;
+  width: 300px;
+  margin-left: 200px;
 }
 
-.comments span {
-  border-radius: 50%;
-  border: 1px solid rebeccapurple;
-  background-color: red;
+.comments h3 {
   color: #fff;
+  background-color: #e37915;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.comments h3 span {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #25bcff;
+  color: #fff;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 20px;
+  border: none;
 }
 
 .comments ul {
-  list-style: none;
-  border: 2px solid #ff5900;
-  width: auto;
+  position: relative;
+  background-color: #fff;
+  border: none;
 }
 
 .comments ul li {
-  font-weight: 500;
-  background-color: silver;
+  list-style: none;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
+}
+
+.comments ul li:hover {
+  transform: scale(1.1);
+  z-index: 100;
+  background-color: #25bcff;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.comments ul li small {
+  font-weight: 600;
 }
 
 .form {
