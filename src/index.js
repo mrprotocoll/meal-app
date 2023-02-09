@@ -44,21 +44,21 @@ window.addEventListener('load', () => {
           e.preventDefault();
           const username = document.getElementById('user').value;
           const message = document.getElementById('message').value;
-          if(username && message) {
-            const today = new Date()
-            const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+          if (username && message) {
+            const today = new Date();
+            const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
             const comment = {
               id: iD,
-              username: username,
+              username,
               comment: message,
-              creation_date: date
-            }
+              creation_date: date,
+            };
             involvement.addComment(comment).then(() => {
-              document.getElementById("comment-body").insertAdjacentHTML("beforeend",Template.commentCard(comment))
+              document.getElementById('comment-body').insertAdjacentHTML('beforeend', Template.commentCard(comment));
               document.getElementById('form').reset();
             });
           }
-        }
+        };
       };
     });
   };
