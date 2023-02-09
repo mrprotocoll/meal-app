@@ -21,9 +21,9 @@ window.addEventListener('load', () => {
     Array.from(commentbtn).forEach((btn) => {
       btn.onclick = async () => {
         const iD = btn.getAttribute('data-id');
-        await meal.getMealByID(iD).then((meal) => {
-          popupcontainer.innerHTML = Template.comment(meal.meals[0]);
-        });
+        const getMeal = await meal.getMealByID(iD);
+        const comments = await involvement.getComments(iD);
+        popupcontainer.innerHTML = Template.comment(getMeal.meals[0], comments);
         // close pop up
         document.querySelector('.close-btn').onclick = () => {
           popupcontainer.innerHTML = '';
