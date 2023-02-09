@@ -33,13 +33,15 @@ export default class Template {
       return content;
     }
 
+    static commentCard = (comment) => `<li>Message: ${comment.comment}
+    <small>Name: ${comment.username}</small>
+    <small>Date: ${comment.creation_date}</small></li>`;
+
     static getComments = (comments) => {
       let content = '';
       if (comments.length > 0) {
         comments.forEach((comment) => {
-          content += `<li>Message: ${comment.comment}
-          <small>Name: ${comment.username}</small>
-          <small>Date: ${comment.creation_date}</small></li>`;
+          content += this.commentCard(comment);
         });
       }
       return content;
@@ -70,16 +72,16 @@ export default class Template {
           </div>
           <div class="comments">
             <h3>Comments<span>5</span></h3>
-            <ul>
+            <ul id="comment-body">
               ${this.getComments(comments)}
             </ul>
           </div>
 
           <form class="form" id="form">
             <div class="add-comment">Add a comment</div>
-            <input type="text" placeholder="Your name " />
-            <textarea placeholder="Your insights" rows="5" cols="20"></textarea>
-            <button type="submit" class="btn">Comments</button>
+            <input id="user" type="text" placeholder="Your name " />
+            <textarea id="message" placeholder="Your insights" rows="5" cols="20"></textarea>
+            <button type="submit" class="btn" id="btn">Comments</button>
           </form>
         </div>
       </section>`;

@@ -25,17 +25,17 @@ export default class Involvement {
     },
   })
 
-  addComment = async (id, user, message) => {
+  addComment = async (data) => {
     fetch(`${this.baseURI}comments`, {
       method: 'POST',
       body: JSON.stringify({
-        item_id: id,
-        username: user,
-        comment: message,
+        item_id: data.id,
+        username: data.username,
+        comment: data.comment,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
-    }).then((response) => response.json());
+    });
   }
 }
