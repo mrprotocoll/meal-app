@@ -71,7 +71,7 @@ export default class Template {
             <p>${meal.strInstructions}</p>
           </div>
           <div class="comments">
-            <h3>Comments<span>5</span></h3>
+            <h3>Comments<span id="comment-count">5</span></h3>
             <ul id="comment-body">
               ${this.getComments(comments)}
             </ul>
