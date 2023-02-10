@@ -3,6 +3,7 @@ import Meal from './module/Meal.js';
 import Template from './module/Template.js';
 import Involvement from './module/Involvement.js';
 import CountMeal from './module/CountMeal.js';
+import CountComment from './module/CountComment.js';
 
 window.addEventListener('load', () => {
   const meal = new Meal();
@@ -47,6 +48,7 @@ window.addEventListener('load', () => {
         involvement.addComment(comment).then(() => {
           document.getElementById('comment-body').insertAdjacentHTML('beforeend', Template.commentCard(comment));
           document.getElementById('form').reset();
+          CountComment();
         });
       }
     };
@@ -67,6 +69,7 @@ window.addEventListener('load', () => {
         };
 
         addComment(iD);
+        CountComment();
       };
     });
   };
