@@ -2,6 +2,7 @@ import './style.css';
 import Meal from './module/Meal.js';
 import Template from './module/Template.js';
 import Involvement from './module/Involvement.js';
+import CountMeal from './module/CountMeal';
 
 window.addEventListener('load', () => {
   const meal = new Meal();
@@ -67,6 +68,8 @@ window.addEventListener('load', () => {
     getAllMeals().then(() => {
       const commentbtn = document.querySelectorAll('.comment-action');
       const likebtn = document.querySelectorAll('.like');
+      // count meals
+      CountMeal()
       // view comments
       viewComments(commentbtn);
       // like meal
